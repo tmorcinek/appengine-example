@@ -4,11 +4,11 @@ public class MyBean {
 
     private String myData;
 
-    public String getData() {
-        return myData;
+    public MyBean(String myData) {
+        this.myData = myData;
     }
 
-    public void setData(String data) {
-        myData = data;
+    public String getData() {
+        return myData;
     }
 }
