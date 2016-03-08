@@ -27,5 +27,4 @@ Reference
 - http://java.com/en/
 - https://developers.google.com/appengine/docs/java/endpoints/
 - https://developers.google.com/appengine/docs/java/tools/maven
-- https://localhost:8080/_ah/api/explorer
 - https://console.developers.google.com/
