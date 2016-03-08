@@ -8,14 +8,14 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     <listener>
-        <listener-class>com.pairapp.data.OfyHelper</listener-class>
+        <listener-class>com.morcinek.appengine.data.OfyHelper</listener-class>
     </listener>
     <servlet>
         <servlet-name>SystemServiceServlet</servlet-name>
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>com.pairapp.YourFirstAPI</param-value>
+            <param-value>com.morcinek.appengine.UsersApi</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
