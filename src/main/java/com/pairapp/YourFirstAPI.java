@@ -3,9 +3,9 @@ package com.pairapp;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.googlecode.objectify.ObjectifyService;
 
 import javax.inject.Named;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,18 +19,15 @@ import java.util.List;
                 packagePath = ""))
 public class YourFirstAPI {
 
-    private List<MyBean> beans = new ArrayList<>();
-
-
     @ApiMethod(name = "users.add", path = "users/new", httpMethod = ApiMethod.HttpMethod.POST)
     public MyBean addBean(@Named("name") String name) {
-        MyBean response = new MyBean("Hi, " + name);
-        beans.add(response);
-        return response;
+        MyBean myBean = new MyBean(name);
+        ObjectifyService.ofy().save().entity(myBean).now();
+        return myBean;
     }
 
-    @ApiMethod(name = "users.collection", path = "users",httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "users.collection", path = "users", httpMethod = ApiMethod.HttpMethod.GET)
     public List<MyBean> getBeans() {
-        return beans;
+        return ObjectifyService.ofy().load().type(MyBean.class).list();
     }
 }
