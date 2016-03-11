@@ -1,7 +1,7 @@
 package com.morcinek.appengine.data;
 
 import com.googlecode.objectify.ObjectifyService;
-import com.morcinek.appengine.model.User;
+import com.morcinek.appengine.model.UserItem;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -13,7 +13,7 @@ import javax.servlet.ServletContextListener;
 public class OfyHelper implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent event) {
-        ObjectifyService.register(User.class);
+        ObjectifyService.register(UserItem.class);
     }
 
     public void contextDestroyed(ServletContextEvent event) {

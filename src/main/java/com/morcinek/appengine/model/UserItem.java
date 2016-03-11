@@ -7,17 +7,17 @@ import com.googlecode.objectify.annotation.Id;
  * Copyright 2016 Tomasz Morcinek. All rights reserved.
  */
 @Entity
-public class User {
+public class UserItem {
 
     @Id
     public Long id;
 
     private String name;
 
-    public User() {
+    public UserItem() {
     }
 
-    public User(String name) {
+    public UserItem(String name) {
         this.name = name;
     }
 
