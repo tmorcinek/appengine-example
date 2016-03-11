@@ -5,7 +5,7 @@ package com.morcinek.appengine.utils;
  */
 public class Constants {
     public static final String WEB_CLIENT_ID = "replace this with your web client ID";
-    public static final String ANDROID_CLIENT_ID = "replace this with your Android client ID";
+    public static final String ANDROID_CLIENT_ID = "813344529100-aqvj005pm8qr39rcdlhshiqel0ou0iut.apps.googleusercontent.com";
     public static final String IOS_CLIENT_ID = "replace this with your iOS client ID";
     public static final String ANDROID_AUDIENCE = WEB_CLIENT_ID;
 
