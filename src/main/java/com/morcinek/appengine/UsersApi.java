@@ -2,7 +2,6 @@ package com.morcinek.appengine;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
-import com.google.api.server.spi.config.ApiNamespace;
 import com.google.appengine.api.oauth.OAuthRequestException;
 import com.google.appengine.api.users.User;
 import com.googlecode.objectify.ObjectifyService;
@@ -19,20 +18,19 @@ import java.util.List;
 @Api(name = "appengine",
         version = "v1",
         scopes = {Constants.EMAIL_SCOPE},
-        clientIds = {Constants.ANDROID_CLIENT_ID},
-        namespace = @ApiNamespace(ownerDomain = "appengine.morcinek.com",
-                ownerName = "appengine.morcinek.com",
-                packagePath = ""))
+        clientIds = {Constants.WEB_CLIENT_ID, Constants.ANDROID_CLIENT_ID},
+        audiences = {Constants.ANDROID_AUDIENCE}
+)
 public class UsersApi {
 
-    @ApiMethod(name = "users.add", path = "users/new", httpMethod = ApiMethod.HttpMethod.POST)
+    @ApiMethod(name = "users.add", path = "users", httpMethod = ApiMethod.HttpMethod.POST)
     public UserItem addUser(@Named("name") String name, User user) throws OAuthRequestException, IOException {
         UserItem userItem = new UserItem(name);
         ObjectifyService.ofy().save().entity(userItem).now();
         return userItem;
     }
 
-    @ApiMethod(name = "users.collection", path = "users", httpMethod = ApiMethod.HttpMethod.GET)
+    @ApiMethod(name = "users.list", path = "users", httpMethod = ApiMethod.HttpMethod.GET)
     public List<UserItem> getUsers(User user) throws OAuthRequestException, IOException {
         return ObjectifyService.ofy().load().type(UserItem.class).list();
     }
