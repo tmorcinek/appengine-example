@@ -6,7 +6,7 @@
     <version>0.0.1</version>
 
     <groupId>com.morcinek.appengine</groupId>
-    <artifactId>example</artifactId>
+    <artifactId>pearapp</artifactId>
 
     <properties>
         <app.id>appengine-example</app.id>

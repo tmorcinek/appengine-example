@@ -9,7 +9,9 @@ import com.morcinek.appengine.model.UserItem;
 import com.morcinek.appengine.utils.Constants;
 
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.List;
 
 /**
@@ -23,20 +25,31 @@ import java.util.List;
 )
 public class UsersApi {
 
+
     @ApiMethod(name = "users.add", path = "users", httpMethod = ApiMethod.HttpMethod.POST)
     public UserItem addUser(@Named("name") String name, User user) throws OAuthRequestException, IOException {
+        if (user == null) {
+            throw new OAuthRequestException("");
+        }
         UserItem userItem = new UserItem(name);
         ObjectifyService.ofy().save().entity(userItem).now();
         return userItem;
     }
 
     @ApiMethod(name = "users.list", path = "users", httpMethod = ApiMethod.HttpMethod.GET)
-    public List<UserItem> getUsers(User user) throws OAuthRequestException, IOException {
+    public List<UserItem> getUsers(User user) throws OAuthRequestException, IOException, GeneralSecurityException {
+        if (user == null) {
+            throw new OAuthRequestException("");
+        }
         return ObjectifyService.ofy().load().type(UserItem.class).list();
     }
 
     @ApiMethod(name = "users.identity", path = "users/me")
-    public User getMe(User user) throws OAuthRequestException, IOException {
-        return user;
+    public UserItem getMe(User user, HttpServletRequest request) throws OAuthRequestException, IOException {
+        if (user == null) {
+            throw new OAuthRequestException("");
+        }
+        UserItem userItem = new UserItem(user.getUserId(), user.getNickname());
+        return userItem;
     }
 }

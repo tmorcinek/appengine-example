@@ -12,6 +12,8 @@ public class UserItem {
     @Id
     public Long id;
 
+    private String googleId;
+
     private String name;
 
     public UserItem() {
@@ -21,7 +23,16 @@ public class UserItem {
         this.name = name;
     }
 
+    public UserItem(String googleId, String name) {
+        this.googleId = googleId;
+        this.name = name;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public String getGoogleId() {
+        return googleId;
     }
 }
