@@ -1,4 +1,4 @@
-package com.morcinek.appengine.model;
+package com.morcinek.pearapp.backend.model;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;

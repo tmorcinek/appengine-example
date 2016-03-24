@@ -1,7 +1,7 @@
-package com.morcinek.appengine.data;
+package com.morcinek.pearapp.backend.data;
 
 import com.googlecode.objectify.ObjectifyService;
-import com.morcinek.appengine.model.UserItem;
+import com.morcinek.pearapp.backend.model.UserItem;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

@@ -1,12 +1,12 @@
-package com.morcinek.appengine;
+package com.morcinek.pearapp.backend;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.appengine.api.oauth.OAuthRequestException;
 import com.google.appengine.api.users.User;
 import com.googlecode.objectify.ObjectifyService;
-import com.morcinek.appengine.model.UserItem;
-import com.morcinek.appengine.utils.Constants;
+import com.morcinek.pearapp.backend.model.UserItem;
+import com.morcinek.pearapp.backend.utils.Constants;
 
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;

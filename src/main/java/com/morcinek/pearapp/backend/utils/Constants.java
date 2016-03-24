@@ -1,4 +1,4 @@
-package com.morcinek.appengine.utils;
+package com.morcinek.pearapp.backend.utils;
 
 /**
  * Contains the client IDs and scopes for allowed clients consuming your API.
